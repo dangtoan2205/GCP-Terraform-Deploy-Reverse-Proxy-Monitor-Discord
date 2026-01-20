@@ -29,3 +29,19 @@ Thumbs.db
 .vscode/
 .idea/
 EOF
+
+# Terraform
+**/.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+*.tfvars
+*.tfvars.json
+
+# Secrets/keys
+**/keys/
+*.pem
+*.key
+id_rsa*
+login-form/
