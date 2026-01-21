@@ -5,8 +5,8 @@
 .terraform.lock.hcl
 
 # Secrets / Keys
-#keys/
-**/keys/
+# keys/
+# **/keys/
 *.pem
 *.key
 id_rsa*
