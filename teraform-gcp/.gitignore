@@ -4,11 +4,14 @@
 *.tfstate.*
 .terraform.lock.hcl
 
-# Secrets
+# Secrets / Keys
+keys/
+**/keys/
 *.pem
 *.key
 id_rsa*
-**/keys/
+id_ecdsa*
+id_ed25519*
 
 # OS / IDE
 .DS_Store
