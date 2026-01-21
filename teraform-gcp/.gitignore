@@ -5,10 +5,10 @@
 .terraform.lock.hcl
 
 # Secrets / Keys
-# keys/
-# **/keys/
+keys/*
+!keys/.gitkeep
 *.pem
-# *.key
+*.key
 id_rsa*
 id_ecdsa*
 id_ed25519*
