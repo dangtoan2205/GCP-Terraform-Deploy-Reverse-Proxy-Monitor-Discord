@@ -1,47 +1,17 @@
-cat > .gitignore <<'EOF'
 # Terraform
 **/.terraform/
 *.tfstate
 *.tfstate.*
-crash.log
-crash.*.log
-*.tfvars
-*.tfvars.json
-override.tf
-override.tf.json
-*_override.tf
-*_override.tf.json
 .terraform.lock.hcl
 
-# Keys / secrets
+# Secrets
 *.pem
 *.key
 id_rsa*
-*.p12
-*.pfx
-*.jks
-*.kubeconfig
 **/keys/
 
-# OS/IDE
+# OS / IDE
 .DS_Store
 Thumbs.db
 .vscode/
 .idea/
-EOF
-
-# Terraform
-**/.terraform/
-*.tfstate
-*.tfstate.*
-crash.log
-crash.*.log
-*.tfvars
-*.tfvars.json
-
-# Secrets/keys
-**/keys/
-*.pem
-*.key
-id_rsa*
-login-form/
