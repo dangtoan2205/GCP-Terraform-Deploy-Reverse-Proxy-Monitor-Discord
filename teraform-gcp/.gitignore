@@ -4,7 +4,11 @@
 *.tfstate.*
 .terraform.lock.hcl
 
-# Secrets / Keys
+# Terraform state (CRITICAL)
+*.tfstate
+*.tfstate.*
+
+# Keys (keep folder, ignore contents)
 keys/*
 !keys/.gitkeep
 *.pem
@@ -12,6 +16,11 @@ keys/*
 id_rsa*
 id_ecdsa*
 id_ed25519*
+
+# Secrets
+*.tfvars
+*.env
+*.secrets
 
 # OS / IDE
 .DS_Store
