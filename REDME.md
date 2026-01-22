@@ -1,13 +1,26 @@
+---
+MÔ HÌNH THỰC HIỆN
+1. Cài nginx
+2. Gỡ site default
+3. Tạo site app
+4. nginx -t
+5. systemctl start nginx
+6. certbot --nginx
+---
+
 # Cấp quyền cho file .pem trên Window
 
 ```bash
-icacls "E:\LAB\GG Cloud\teraform-gcp\keys\id_rsa_lab.pem"
+# CẤP QUYỀN (grant)
+icacls ".\keys\id_rsa_lab.pem" /inheritance:r
+icacls ".\keys\id_rsa_lab.pem" /remove:g "Authenticated Users" "Users" "Administrators" "SYSTEM"
+icacls ".\keys\id_rsa_lab.pem" /grant:r "$env:USERNAME:R"
 ```
 
 # Thu hồi quyền cho file .pem trên Window
 
 ```bash
-icacls "E:\LAB\GG Cloud\teraform-gcp\keys\id_rsa_lab.pem" /reset
+icacls ".\keys\id_rsa_lab.pem" /reset
 ```
 
 # Xóa host key cũ của IP đó trong `known_hosts`
@@ -155,7 +168,7 @@ curl http://localhost
 Cập nhật file site để có 443:
 
 ```
-sudo tee /etc/nginx/sites-available/app.onnetdev.site >/dev/null <<'NGINX'
+sudo tee /etc/nginx/sites-enabled/app.onnetdev.site >/dev/null <<'NGINX'
 server {
   listen 80;
   server_name app.onnetdev.site;
