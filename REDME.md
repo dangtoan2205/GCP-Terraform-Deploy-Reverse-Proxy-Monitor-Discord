@@ -97,7 +97,6 @@ server {
 }
 NGINX
 ```
-
 Enable site và reload:
 
 ```
@@ -118,6 +117,34 @@ sudo snap install certbot --classic
 ```
 sudo certbot --nginx -d app.onnetdev.site
 ```
+
+---
+> Nếu có lỗi xảy ra khi port 80 dùng để chạy Certbot bị Nginx Default chiếm
+
+Fix như sau:
+
+✅ BƯỚC 1: TẮT SITE DEFAULT (BẮT BUỘC)
+```
+sudo rm -f /etc/nginx/sites-enabled/default
+```
+✅ BƯỚC 2: KIỂM TRA LISTEN 80
+```
+sudo ss -lntp | grep :80
+```
+✅ BƯỚC 3: TEST CONFIG
+```
+sudo nginx -t
+```
+✅ BƯỚC 4: START NGINX
+```
+sudo systemctl start nginx
+sudo systemctl status nginx
+```
+✅ BƯỚC 5: TEST
+```
+curl http://localhost
+```
+---
 
 > Sau khi thành công, chứng chỉ nằm tại:
 > - /etc/letsencrypt/live/app.onnetdev.site/fullchain.pem
